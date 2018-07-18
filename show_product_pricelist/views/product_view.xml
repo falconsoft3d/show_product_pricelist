@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="spp_product_product_tree_view" model="ir.ui.view">
+            <field name="name">spp.product.product.tree.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">   
+                <field name="lst_price" position="before">
+                    <field name="pricelist_price"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="spp_product_normal_form_view" model="ir.ui.view">
+            <field name="name">spp.product.normal.form.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">   
+                <field name="lst_price" position="after">
+                    <field name="pricelist_price"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="spp_product_template_only_form_view" model="ir.ui.view">
+            <field name="name">spp.product.template.only.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <field name="list_price" position="after">
+                    <field name="pricelist_price"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="spp_product_template_tree_view" model="ir.ui.view">
+            <field name="name">spp.product.template.tree.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="list_price" position="before">
+                    <field name="pricelist_price"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="spp_product_template_kanban_view" model="ir.ui.view">
+            <field name="name">spp.product.template.kanban.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_kanban_view"/>
+            <field name="arch" type="xml">
+                <ul position="replace">
+                    <ul>
+                        <li>List Price: <field name="pricelist_price" widget="monetary"/></li>
+                        <li>Price: <field name="lst_price" widget="monetary"/></li>
+                    </ul>
+                </ul>
+            </field>
+        </record>
+    </data>
+</odoo>
